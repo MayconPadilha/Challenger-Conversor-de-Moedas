@@ -1,4 +1,7 @@
 package model;
-public record Moeda(String base_code, Valor conversion_rates) {
+
+import java.util.Map;
+
+public record Moeda(String base_code, Map<String, Double> conversion_rates) {
 
 } 

@@ -4,17 +4,18 @@ public class App {
  
     public static void main(String[] args) {
 
-        Double valor = 1000.00;
+        Double valorOriginal = 1000.00;
 
         ConsultaMoeda consultaMoeda = new ConsultaMoeda();
 
-        //moeda a ser convertida
         Moeda moeda = consultaMoeda.buscaMoeda("BRL");
 
-        CalcularConversao calcularConversao = new CalcularConversao();
-        valor = calcularConversao.calcularConversao(valor, moeda);
+        String moedaAlvo = "EUR";
 
-        System.out.println(valor);
+        CalcularConversao calcularConversao = new CalcularConversao();
+        Double valorConvertido = calcularConversao.calcularConversao(valorOriginal, moeda, moedaAlvo.toLowerCase());
+
+        System.out.println("Valor convertido: " + valorConvertido);
 
     }
 }
