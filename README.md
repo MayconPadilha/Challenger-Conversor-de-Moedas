@@ -15,4 +15,7 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 
 ## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be
+found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+Duplique o arquivo `.env.example` e renomeie a cópia para `.env`, dentro dele ajuste o valor da chave de acesso da API

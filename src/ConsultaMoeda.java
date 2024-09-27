@@ -8,10 +8,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConsultaMoeda {
-    public Moeda buscaMoeda(String moeda) {
 
-        try {
-            URI uri = URI.create("https://v6.exchangerate-api.com/v6/7873f632daa51a3024ac18cc/latest/" + moeda);
+  public Moeda buscaMoeda(String moeda) {
+    String API_KEY = EnvLoader.loadEnvFile(".env").get("API_KEY");
+    try {
+      URI uri = URI.create("https://v6.exchangerate-api.com/v6/" + API_KEY + "/latest/" + moeda);
 
       HttpClient client = HttpClient.newHttpClient();
       HttpRequest request = HttpRequest.newBuilder().uri(uri).build();
