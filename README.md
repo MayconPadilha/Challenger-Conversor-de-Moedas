@@ -1,18 +1,19 @@
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+![Badge-Conversor](https://github.com/user-attachments/assets/4c5de51c-9a20-4565-b1fd-7a817410bf7b)
 
-## Folder Structure
+# Aplicativo de Conversor de Moedas
 
-The workspace contains two folders by default, where:
+Este projeto é um aplicativo simples de linha de comando escrito em Java que converte valores de moeda com base em taxas de câmbio em tempo real. O aplicativo utiliza uma API externa para buscar as últimas taxas de câmbio e permite que os usuários convertam valores entre várias moedas.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Funcionalidades
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Converter valores entre diferentes moedas
+- Suporta várias moedas, incluindo ARS, BOB, BRL, CLP, COP, USD e EUR
+- Busca taxas de câmbio em tempo real utilizando a ExchangeRate-API
+- Interface amigável baseada em menus
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Pré-requisitos
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- Java Development Kit (JDK) 11 ou superior
+- Conexão à internet para buscar taxas de câmbio da API
+- Biblioteca Gson para parsing de JSON
