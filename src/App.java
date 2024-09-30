@@ -4,32 +4,42 @@ import java.util.Scanner;
 
 public class App {
 
-  public static void main(String[] args) {
-    Scanner scan = new Scanner(System.in);
+  private static Scanner scan = new Scanner(System.in);
 
+  public static void main(String[] args) {
     boolean exit = false;
+    String mensagemOpcao = "";
+    String mensagemOpcaoErro = "";
+
+    String[] moedas = {"ARS", "BOB", "BRL", "CLP", "COP", "USD", "EUR", "TOP", "SSP"};
 
     while(!exit) {
       menu();
 
-      int opcao = scan.nextInt();
+      mensagemOpcao = "Qual sua opcao? ";
+      mensagemOpcaoErro = "Valor inválido. Tente novamente.\n";
+      int opcao = inputNumberValidate(1, 2, mensagemOpcao , mensagemOpcaoErro);
 
       switch(opcao) {
         case 1:
           moedas();
-          int opcaoMoeda = scan.nextInt();
+          mensagemOpcao = "Qual sua opcao? ";
+          mensagemOpcaoErro = "Valor inválido. Tente novamente.\n";
 
-          String[] moedas = {"ARS", "BOB", "BRL", "CLP", "COP", "USD", "EUR"};
+          int opcaoMoeda = inputNumberValidate(1, moedas.length, mensagemOpcao , mensagemOpcaoErro);
           String moedaSelecionada = moedas[--opcaoMoeda];
 
           ConsultaMoeda consultaMoeda = new ConsultaMoeda();
           Moeda moeda = consultaMoeda.buscaMoeda(moedaSelecionada);
 
-          System.out.print("Qual valor deseja converter? ");
-          Double valorOriginal = scan.nextDouble();
+          String mensagem = "Qual valor deseja converter?";
+          String mensagemErro = "Valor inválido. Tente novamente.\n";
+          Double valorOriginal = inputNumberValidate(0.1, Double.MAX_VALUE, mensagem , mensagemErro);
 
           moedas();
-          opcaoMoeda = scan.nextInt();
+          mensagemOpcao = "Qual sua opcao? ";
+          mensagemOpcaoErro = "Valor inválido. Tente novamente.\n";
+          opcaoMoeda = inputNumberValidate(1, moedas.length, mensagemOpcao , mensagemOpcaoErro);
           String moedaAlvo = moedas[--opcaoMoeda];
 
           CalcularConversao calcularConversao = new CalcularConversao();
@@ -78,5 +88,43 @@ public class App {
 
         ***********************
         """);
+  }
+
+  private static int inputNumberValidate(int startWith, int endWith, String question, String messageError) {
+    if(startWith > endWith) {
+      int tmp = startWith;
+      startWith = endWith;
+      endWith = tmp;
+    }
+    int option;
+    while(true) {
+      try {
+        System.out.print(question);
+        option = Integer.parseInt(scan.nextLine());
+        if(option >= startWith && option <= endWith) return option;
+        else throw new IllegalArgumentException();
+      } catch(Exception e) {
+        System.err.print(messageError);
+      }
+    }
+  }
+
+  private static double inputNumberValidate(double startWith, double endWith, String question, String messageError) {
+    if(startWith > endWith) {
+      double tmp = startWith;
+      startWith = endWith;
+      endWith = tmp;
+    }
+    double option;
+    while(true) {
+      try {
+        System.out.print(question);
+        option = Double.parseDouble(scan.nextLine().replaceAll(",", "."));
+        if(option >= startWith && option <= endWith) return option;
+        else throw new IllegalArgumentException();
+      } catch(Exception e) {
+        System.err.print(messageError);
+      }
+    }
   }
 }
