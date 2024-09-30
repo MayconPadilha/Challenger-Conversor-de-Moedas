@@ -17,3 +17,14 @@ Este projeto é um aplicativo simples de linha de comando escrito em Java que co
 - Java Development Kit (JDK) 11 ou superior
 - Conexão à internet para buscar taxas de câmbio da API
 - Biblioteca Gson para parsing de JSON
+
+## Dependency Management
+
+The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be
+found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+Duplique o arquivo `.env.example` e renomeie a cópia para `.env`, dentro dele ajuste o valor da chave de acesso da API
+
+
+
+
