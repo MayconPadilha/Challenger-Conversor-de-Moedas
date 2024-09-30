@@ -22,7 +22,7 @@ public class App {
 
             switch (opcao) {
                 case 1:
-                    interacaoMenu.realizarConversaoDeMoedas(opcao);
+                    interacaoMenu.realizarConversaoDeMoedas();
                     break;
                 case 2:
                     exit = true;

@@ -13,7 +13,7 @@ public class InteracaoMenu {
 
     EnumMoeda[] moedas = EnumMoeda.values();
 
-    public void realizarConversaoDeMoedas(int opcao) {
+    public void realizarConversaoDeMoedas() {
         moedas();
         opcaoMoeda = inputValidate.inputNumberValidate(1, moedas.length, mensagemOpcao, mensagemOpcaoErro);
         EnumMoeda moedaSelecionada = moedas[--opcaoMoeda];
