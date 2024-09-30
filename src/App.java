@@ -54,7 +54,7 @@ public class App {
   public static void menu() {
     System.out.println("""
         ***********************
-        Selecione uma opção:
+        Selecione o número da opção:
 
         1. Converter
         2. Sair
@@ -66,7 +66,7 @@ public class App {
   public static void moedas() {
     System.out.println("""
         ***********************
-        Selecione uma opção:
+        Selecione o número da opção:
 
         1. ARS - Peso argentino
         2. BOB - Boliviano boliviano
