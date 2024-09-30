@@ -11,7 +11,7 @@ public class App {
     String mensagemOpcao = "";
     String mensagemOpcaoErro = "";
 
-    String[] moedas = {"ARS", "BOB", "BRL", "CLP", "COP", "USD", "EUR", "TOP", "SSP"};
+    EnumMoeda[] moedas = EnumMoeda.values();
 
     while(!exit) {
       menu();
@@ -27,7 +27,7 @@ public class App {
           mensagemOpcaoErro = "Valor inválido. Tente novamente.\n";
 
           int opcaoMoeda = inputNumberValidate(1, moedas.length, mensagemOpcao , mensagemOpcaoErro);
-          String moedaSelecionada = moedas[--opcaoMoeda];
+          EnumMoeda moedaSelecionada = moedas[--opcaoMoeda];
 
           ConsultaMoeda consultaMoeda = new ConsultaMoeda();
           Moeda moeda = consultaMoeda.buscaMoeda(moedaSelecionada);
@@ -40,10 +40,10 @@ public class App {
           mensagemOpcao = "Qual sua opcao? ";
           mensagemOpcaoErro = "Valor inválido. Tente novamente.\n";
           opcaoMoeda = inputNumberValidate(1, moedas.length, mensagemOpcao , mensagemOpcaoErro);
-          String moedaAlvo = moedas[--opcaoMoeda];
+          EnumMoeda moedaAlvo = moedas[--opcaoMoeda];
 
           CalcularConversao calcularConversao = new CalcularConversao();
-          Double valorConvertido = calcularConversao.calcularConversao(valorOriginal, moeda, moedaAlvo.toLowerCase());
+          Double valorConvertido = calcularConversao.calcularConversao(valorOriginal, moeda, moedaAlvo);
 
           System.out.println("Valor convertido: " + valorConvertido);
 
@@ -74,20 +74,7 @@ public class App {
   }
 
   public static void moedas() {
-    System.out.println("""
-        ***********************
-        Selecione o número da opção:
-
-        1. ARS - Peso argentino
-        2. BOB - Boliviano boliviano
-        3. BRL - Real brasileiro
-        4. CLP - Peso chileno
-        5. COP - Peso colombiano
-        6. USD - Dólar americano
-        7. EUR - Euro
-
-        ***********************
-        """);
+    EnumMoeda.mostrar();
   }
 
   private static int inputNumberValidate(int startWith, int endWith, String question, String messageError) {

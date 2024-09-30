@@ -9,7 +9,7 @@ import java.net.http.HttpResponse;
 
 public class ConsultaMoeda {
 
-  public Moeda buscaMoeda(String moeda) {
+  public Moeda buscaMoeda(EnumMoeda moeda) {
     String API_KEY = EnvLoader.loadEnvFile(".env").get("API_KEY");
     try {
       URI uri = URI.create("https://v6.exchangerate-api.com/v6/" + API_KEY + "/latest/" + moeda);
@@ -18,7 +18,7 @@ public class ConsultaMoeda {
       HttpRequest request = HttpRequest.newBuilder().uri(uri).build();
       HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-      String json = response.body().toLowerCase();
+      String json = response.body();
 
       return new Gson().fromJson(json, Moeda.class);
 
