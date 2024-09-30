@@ -1,4 +1,7 @@
+package util;
 import com.google.gson.Gson;
+
+import model.EnumMoeda;
 import model.Moeda;
 
 import java.io.IOException;
@@ -22,7 +25,7 @@ public class ConsultaMoeda {
 
       return new Gson().fromJson(json, Moeda.class);
 
-    } catch(IOException | InterruptedException e) {
+    } catch (IOException | InterruptedException e) {
       throw new RuntimeException("Não foi possível buscar os dados da API", e);
     }
 

@@ -1,3 +1,4 @@
+package util;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,17 +12,17 @@ public class EnvLoader {
   public static Map<String, String> loadEnvFile(String filePath) {
     Map<String, String> envVariables = new HashMap<>();
 
-    try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
       String line;
-      while((line = reader.readLine()) != null) {
+      while ((line = reader.readLine()) != null) {
         // Ignora linhas vazias ou comentários
-        if(line.trim().isEmpty() || line.trim().startsWith("#")) {
+        if (line.trim().isEmpty() || line.trim().startsWith("#")) {
           continue;
         }
 
         // Divide a linha na chave e valor
         String[] keyValue = line.split("=", 2);
-        if(keyValue.length == 2) {
+        if (keyValue.length == 2) {
           String key = keyValue[0].trim();
           String value = keyValue[1].trim();
 
@@ -29,7 +30,7 @@ public class EnvLoader {
           envVariables.put(key, value);
         }
       }
-    } catch(IOException e) {
+    } catch (IOException e) {
       System.err.println("Erro ao carregar o arquivo .env: " + e.getMessage());
     }
     vars = Map.copyOf(envVariables);
