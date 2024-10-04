@@ -5,6 +5,12 @@
 
 Este projeto é um aplicativo simples de linha de comando escrito em Java que converte valores de moeda com base em taxas de câmbio em tempo real. O aplicativo utiliza uma API externa para buscar as últimas taxas de câmbio e permite que os usuários convertam valores entre várias moedas.
 
+## 🛠️ Tecnologias Utilizadas
+
+- ☕ **Java**
+- 📦 **Gson** para manipulação de JSON
+- 🌐 **ExchangeRate-API** para obtenção das taxas de câmbio em tempo real
+
 ## Funcionalidades
 
 - Converter valores entre diferentes moedas
